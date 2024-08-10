@@ -157,6 +157,10 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        //如果已经胜利按下A就不会有反应
+        if (victory()) {
+            return;
+        }
         //按下按键A不松开就会展示完整页面
         int keyCode = e.getKeyCode();
         if (keyCode == 65) {
@@ -180,6 +184,7 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+         //如果已经胜利按下任何键都不会有反应
         if (victory()) {
             return;
         }
